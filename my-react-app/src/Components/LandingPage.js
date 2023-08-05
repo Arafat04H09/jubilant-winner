@@ -1,6 +1,7 @@
 // src/components/LandingPage.js
 
 import React from 'react';
+import '../LandingPage.css';
 
 const LandingPage = () => {
   return (
