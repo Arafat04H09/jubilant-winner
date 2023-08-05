@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './LandingPage.css';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   const [accessToken, setAccessToken] = useState(null);
@@ -99,9 +100,9 @@ const LandingPage = () => {
         <p>Track and visualize your Spotify data like never before.</p>
       </header>
       <main>
-        <button className="login-button">
-          Login with Spotify  
-        </button>
+        <Link to="/home">
+          <button className="login-button">Login with Spotify</button>
+        </Link>
       </main>
       <footer>
         <p>Powered by Spotify API and AWS</p>
@@ -109,5 +110,6 @@ const LandingPage = () => {
     </div>
   );
 };
+
 
 export default LandingPage;
