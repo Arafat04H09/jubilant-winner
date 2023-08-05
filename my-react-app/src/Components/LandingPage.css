@@ -1,0 +1,147 @@
+body, h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Reset default margin, padding, and box-sizing */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.landing-page {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between; /* Change from center to space-between */
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(45deg, #ffcccb, #98fb98, #b0e0e6, #f0e68c);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  padding: 20px 0; /* Add padding top and bottom */
+}
+
+footer {
+  /* No need for the absolute position now */
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Styles for the album cover */
+.album-cover {
+  position: absolute;
+  bottom: 0;
+  width: 100px;
+  visibility: hidden; /* Set initial visibility to hidden */
+  opacity: 0; /* Make the cover initially transparent */
+  animation: float 30s ease-in-out infinite;
+}
+
+@keyframes moveUpFadeOut {
+  0% {
+    bottom: 0;
+    opacity: 0; /* Start the animation with the cover fully transparent */
+    visibility: visible; /* Make the cover visible when the animation starts */
+  }
+  25% {
+    opacity: 1; /* Gradually change the opacity to fully visible */
+  }
+  75% {
+    opacity: 1; /* Keep the cover fully visible for most of the animation */
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0; /* Make the cover fade out at the end of the animation */
+  }
+}
+
+header {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+}
+
+header p {
+  font-size: 18px;
+  color: #666;
+}
+
+main {
+  position: relative;
+  margin-top: 20px;
+}
+
+.login-button {
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #1DB954;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #1aa34a;
+}
+
+footer {
+  position: relative;
+  bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header h1 {
+    font-size: 30px;
+  }
+
+  header p {
+    font-size: 16px;
+  }
+
+  .login-button {
+    font-size: 16px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
