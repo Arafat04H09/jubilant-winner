@@ -1,15 +1,21 @@
-// src/components/Navbar.js
-
+// Navbar.js
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
 
 const Navbar = () => {
   return (
     <nav className="navbar">
+      <Link to="/home" className="navbar-brand">
+        Sp.stats
+      </Link>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        {/* Add more navigation links as needed */}
-        <li><a href="/logout">Logout</a></li>
+        <li>
+          <Link to="/home">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
       </ul>
     </nav>
   );

@@ -35,7 +35,7 @@ footer {
 .album-cover {
   position: absolute;
   bottom: 0;
-  width: 100px;
+  width: 3%;
   visibility: hidden; /* Set initial visibility to hidden */
   opacity: 0; /* Make the cover initially transparent */
   animation: float 30s ease-in-out infinite;
@@ -62,7 +62,7 @@ footer {
 header {
   position: relative;
   text-align: center;
-  padding: 20px;
+  padding: 50px 20px 20px; /* Increase the padding-top value to push the header down */
 }
 
 header h1 {
