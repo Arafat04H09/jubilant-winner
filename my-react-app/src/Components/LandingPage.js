@@ -82,24 +82,24 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
-      {covers.map((cover, index) => (
-        <img 
-          className="album-cover"
-          style={{ 
-            animation: `moveUpFadeOut ${15 + Math.random() * 10}s linear ${index * 3}s infinite`,
-            left: `${Math.random() * 90}vw`,
-          }}
-          src={cover} 
-          alt="album cover" 
-          key={index}
-          onAnimationEnd={() => handleAnimationEnd(index)} 
-        />
-      ))}
       <header>
         <h1>Welcome to Your Spotify Statistics!</h1>
         <p>Track and visualize your Spotify data like never before.</p>
       </header>
       <main>
+        {covers.map((cover, index) => (
+          <img 
+            className="album-cover"
+            style={{ 
+              animation: `moveUpFadeOut ${15 + Math.random() * 10}s linear ${index * 3}s infinite`,
+              left: `${Math.random() * 90}vw`,
+            }}
+            src={cover} 
+            alt="album cover" 
+            key={index}
+            onAnimationEnd={() => handleAnimationEnd(index)} 
+          />
+        ))}
         <Link to="/home">
           <button className="login-button">Login with Spotify</button>
         </Link>
@@ -109,7 +109,6 @@ const LandingPage = () => {
       </footer>
     </div>
   );
-};
-
+}
 
 export default LandingPage;

@@ -3,7 +3,6 @@ body, h1, p {
   padding: 0;
 }
 
-/* Reset default margin, padding, and box-sizing */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -12,33 +11,44 @@ body, h1, p {
 
 .landing-page {
   display: flex;
-  position: relative;
   flex-direction: column;
-  justify-content: space-between; /* Change from center to space-between */
+  justify-content: space-between;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  height: calc(100vh - 55px); /* reduce the height by the height of the navbar */
+  padding: 10px; /* reduced padding to free up some space */
+  overflow: hidden; /* hiding potential overflow */
   background: linear-gradient(45deg, #ffcccb, #98fb98, #b0e0e6, #f0e68c);
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
-  padding: 20px 0; /* Add padding top and bottom */
 }
 
 footer {
-  /* No need for the absolute position now */
   text-align: center;
   font-size: 14px;
   color: #666;
+  flex-shrink: 1; /* added flex-shrink to allow shrinking */
 }
 
-/* Styles for the album cover */
 .album-cover {
   position: absolute;
   bottom: 0;
   width: 3%;
-  visibility: hidden; /* Set initial visibility to hidden */
-  opacity: 0; /* Make the cover initially transparent */
+  visibility: hidden;
+  opacity: 0;
   animation: float 30s ease-in-out infinite;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px 20px; /* reduced padding to free up some space */
+  flex-shrink: 1; /* added flex-shrink to allow shrinking */
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 @keyframes moveUpFadeOut {
@@ -59,31 +69,9 @@ footer {
   }
 }
 
-header {
-  position: relative;
-  text-align: center;
-  padding: 50px 20px 20px; /* Increase the padding-top value to push the header down */
-}
-
-header h1 {
-  font-size: 36px;
-  font-weight: bold;
-  color: #333;
-}
-
-header p {
-  font-size: 18px;
-  color: #666;
-}
-
-main {
-  position: relative;
-  margin-top: 20px;
-}
-
 .login-button {
-  padding: 12px 24px;
-  font-size: 18px;
+  padding: 15px 30px; /* Adjust the padding to make the button larger */
+  font-size: 20px; /* Adjust the font size to make the text larger */
   font-weight: bold;
   color: #fff;
   background-color: #1DB954;
@@ -95,14 +83,6 @@ main {
 
 .login-button:hover {
   background-color: #1aa34a;
-}
-
-footer {
-  position: relative;
-  bottom: 20px;
-  text-align: center;
-  font-size: 14px;
-  color: #666;
 }
 
 @keyframes gradientAnimation {
