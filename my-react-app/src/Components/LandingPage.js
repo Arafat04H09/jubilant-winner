@@ -7,6 +7,9 @@ const LandingPage = () => {
   const [accessToken, setAccessToken] = useState(null);
   const [covers, setCovers] = useState([]);
 
+  const redirectUri = "http://localhost:3000/redirect"
+  const spotifyLoginUrl = `https://accounts.spotify.com/authorize?client_id=${process.env.REACT_APP_SPOTIFY_CLIENT_ID}&redirect_uri=${redirectUri}&response_type=token`;
+
   const fetchAlbumArt = useCallback(async () => {
     try {
       // Fetch album art
@@ -100,9 +103,7 @@ const LandingPage = () => {
             onAnimationEnd={() => handleAnimationEnd(index)} 
           />
         ))}
-        <Link to="/home">
-          <button className="login-button">Login with Spotify</button>
-        </Link>
+        <Link to={spotifyLoginUrl} className="login-button">Login with Spotify</Link>
       </main>
       <footer>
         <p>Powered by Spotify API and AWS</p>

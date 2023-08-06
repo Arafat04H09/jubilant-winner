@@ -6,6 +6,7 @@ import Navbar from './Components/Navbar';
 import LandingPage from './Components/LandingPage';
 import HomePage from './Components/HomePage';
 import AboutPage from './Components/AboutPage';
+import RedirectPage from './Components/RedirectPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/redirect" element = {<RedirectPage />} />
         </Routes>
       </div>
     </Router>
