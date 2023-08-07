@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../Stylesheets/styles.css';
 import axios from 'axios';
 
-const RedirectPage = () => {
+const RedirectPage = ({getAccessToken}) => {
   const navigate = useNavigate();
   
   // useState returns the state, and the function to update the state
@@ -34,11 +34,13 @@ const RedirectPage = () => {
     .then(response => {
       if (response.status === 200) {
         console.log("200 OK")
-        console.log(response.data.access_token)
-        setAccessToken(response.data.access_token);
+        const newAccessToken = response.data.access_token;
+        console.log(newAccessToken)
+        setAccessToken(newAccessToken);
+        getAccessToken(newAccessToken);
 
         // Redirect to homepage
-        navigate('/home', { accessToken: accessToken });
+        navigate('/home', { accessToken: newAccessToken });
       }
     })
     .catch(error => {
