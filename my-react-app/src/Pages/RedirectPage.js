@@ -47,7 +47,7 @@ const RedirectPage = ({getAccessToken}) => {
       console.error('Error fetching access token:', error);
     });
 
-});
+  }, [navigate, getAccessToken]); // dependencies for useEffect
 
   return (
     <div className='with-navbar-margin'>
