@@ -1,22 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../Stylesheets/styles.css';
 import '../Stylesheets/Home.css';
-import RedirectPage from './RedirectPage';
+import axios from 'axios';
+import { useAccessToken } from '../AccessTokenProvider'; // make sure this path is correct
 
-const HomePage = ({ accessToken }) => {
+const HomePage = () => {
+  const { accessToken } = useAccessToken();
 
-const [accessToken, setAccessToken] = useState(null);
+  useEffect(() => {
+    if (!accessToken) return;
 
-const getAccessToken = (token) => {
-  setAccessToken(token);
-}
+    axios.get('https://api.spotify.com/v1/me', {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      }
+    })
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }, [accessToken]);
+
   return (
     <div className="home-page with-navbar-margin">
       {/* ... Your home page content ... */}
         <div className="main-container">
           <div className="heading">
-            <RedirectPage getAccessToken={getAccessToken} />
             Access Token: {accessToken}
           </div>
             <ul>
