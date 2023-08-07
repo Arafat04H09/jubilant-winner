@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import './LandingPage.css';
+import '../Stylesheets/LandingPage.css';
 import { Link } from 'react-router-dom';
 
 const LandingPage = () => {

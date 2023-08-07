@@ -1,12 +1,12 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
+import './Stylesheets/App.css';
 import Navbar from './Components/Navbar';
-import LandingPage from './Components/LandingPage';
-import HomePage from './Components/HomePage';
-import AboutPage from './Components/AboutPage';
-import RedirectPage from './Components/RedirectPage';
+import LandingPage from './Pages/LandingPage';
+import HomePage from './Pages/HomePage';
+import AboutPage from './Pages/AboutPage';
+import RedirectPage from './Pages/RedirectPage';
 
 function App() {
   return (
