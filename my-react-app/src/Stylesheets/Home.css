@@ -1,0 +1,19 @@
+.main-container {
+    padding: 200px;
+    background-color: #000;
+    box-sizing: border-box;
+  }
+
+  .container {
+    padding: 200px;
+    box-sizing: border-box;
+  }
+  
+  .logo {
+    font-size: 24px;
+  }
+  
+  ul li {
+    color: white;
+    list-style-type: none;
+  }

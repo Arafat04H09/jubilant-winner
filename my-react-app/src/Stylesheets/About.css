@@ -1,28 +1,9 @@
 /* AboutPage.css */
-body {
-    margin-top: 51.33px;
-}
 
 /* Container styles */
 .about-container {
     max-width: 800px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 40px 20px;
-  }
-  
-  /* Heading styles */
-  .about-heading {
-    font-size: 36px;
-    font-weight: 800;
-    color: #1db954;
-    margin-bottom: 20px;
-  }
-  
-  /* Paragraph styles */
-  .about-paragraph {
-    font-size: 18px;
-    font-weight: 350;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: black;
   }

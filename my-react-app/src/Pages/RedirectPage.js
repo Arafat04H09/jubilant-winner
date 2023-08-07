@@ -1,20 +1,57 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../Stylesheets/styles.css';
+import axios from 'axios';
 
 const RedirectPage = () => {
+  const navigate = useNavigate();
+  
+  // useState returns the state, and the function to update the state
+  const [accessToken, setAccessToken] = useState("");
+
   useEffect(() => {
-    // Get the access token from the URL (query string)
-    const params = new URLSearchParams(window.location.hash.substr(1));
-    const accessToken = params.get('access_token');
+    // Extract authorization code from URL
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
 
-    // Save the access token to your state or local storage and use it for API requests
-    // For example, you can use Redux or React Context to manage the access token globally
-    console.log(accessToken)
+    // Required redirect uri
+    const redirect_uri = "http://localhost:3000/redirect"
 
-    // Redirect to the HomePage after successful login
-    window.location.href = '/home'; // Replace with the actual route to your HomePage
-  }, []);
+    // Set up the request payload
+    const payload = new URLSearchParams();
+    payload.append('grant_type', "authorization_code");
+    payload.append('code', code);
+    payload.append('redirect_uri', redirect_uri);
 
-  return <div>Redirecting...</div>;
+    // Make the POST request to exchange the code for an access token
+    axios.post('https://accounts.spotify.com/api/token', payload, {
+      headers: {
+        'Authorization': `Basic ${btoa(`${process.env.REACT_APP_SPOTIFY_CLIENT_ID}:${process.env.REACT_APP_SPOTIFY_CLIENT_SECRET}`)}`,
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      json: true
+    })
+    .then(response => {
+      if (response.status === 200) {
+        console.log("200 OK")
+        console.log(response.data.access_token)
+        setAccessToken(response.data.access_token);
+
+        // Redirect to homepage
+        navigate('/home', { accessToken: accessToken });
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching access token:', error);
+    });
+
+});
+
+  return (
+    <div className='with-navbar-margin'>
+      <p>Redirecting...</p>
+    </div>
+  );
 };
 
 export default RedirectPage;

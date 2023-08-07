@@ -1,0 +1,20 @@
+/* Styles to be used throughout all pages*/
+
+.with-navbar-margin {
+    margin-top: 51px;
+}
+
+.heading {
+    font-size: 36px;
+    font-weight: 800;
+    color: #1db954;
+    margin-bottom: 20px;
+}
+
+.paragraph {
+    font-size: 18px;
+    font-weight: 350;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: black;
+  }

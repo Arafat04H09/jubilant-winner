@@ -9,13 +9,15 @@ import AboutPage from './Pages/AboutPage';
 import RedirectPage from './Pages/RedirectPage';
 
 function App() {
+  
+
   return (
     <Router>
       <div className="App">
         <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/home" element={<HomePage accessToken={accessToken}/>} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/redirect" element = {<RedirectPage />} />
         </Routes>

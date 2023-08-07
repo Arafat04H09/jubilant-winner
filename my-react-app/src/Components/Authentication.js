@@ -1,5 +1,7 @@
 // src/components/Authentication.js
 
+//UNUSED FOR NOW
+
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 

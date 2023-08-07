@@ -1,14 +1,26 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import '../Stylesheets/LandingPage.css';
-import { Link } from 'react-router-dom';
+import '../Stylesheets/styles.css';
 
 const LandingPage = () => {
   const [accessToken, setAccessToken] = useState(null);
   const [covers, setCovers] = useState([]);
 
   const redirectUri = "http://localhost:3000/redirect"
-  const spotifyLoginUrl = `https://accounts.spotify.com/authorize?client_id=${process.env.REACT_APP_SPOTIFY_CLIENT_ID}&redirect_uri=${redirectUri}&response_type=token`;
+  const scope = 'user-read-currently-playing user-follow-read user-top-read user-read-recently-played';
+
+  const loginButtonClick = () => {
+    // Construct Spotify authorization URL
+    const authUrl = `https://accounts.spotify.com/authorize?` +
+    'response_type=code'+
+    `&client_id=${process.env.REACT_APP_SPOTIFY_CLIENT_ID}` +
+    `&scope=${encodeURIComponent(scope)}` +
+    `&redirect_uri=${encodeURIComponent(redirectUri)}`;
+
+    // Redirect user to Spotify login page
+    window.location.href = authUrl;
+};
 
   const fetchAlbumArt = useCallback(async () => {
     try {
@@ -84,7 +96,7 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="landing-page">
+    <div className="landing-page with-navbar-margin">
       <header>
         <h1>Welcome to Your Spotify Statistics!</h1>
         <p>Track and visualize your Spotify data like never before.</p>
@@ -103,7 +115,7 @@ const LandingPage = () => {
             onAnimationEnd={() => handleAnimationEnd(index)} 
           />
         ))}
-        <Link to={spotifyLoginUrl} className="login-button">Login with Spotify</Link>
+        <button className="login-button" onClick={loginButtonClick}>Login with Spotify</button>
       </main>
       <footer>
         <p>Powered by Spotify API and AWS</p>
