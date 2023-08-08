@@ -24,7 +24,7 @@ const RedirectPage = () => {
         'Authorization': `Basic ${btoa(`${process.env.REACT_APP_SPOTIFY_CLIENT_ID}:${process.env.REACT_APP_SPOTIFY_CLIENT_SECRET}`)}`,
         'Content-Type': 'application/x-www-form-urlencoded'
       },
-      json: true
+      json: true  
     })
     .then(response => {
       if (response.status === 200) {
