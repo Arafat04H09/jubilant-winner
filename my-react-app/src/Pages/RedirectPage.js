@@ -19,7 +19,7 @@ const RedirectPage = () => {
     payload.append('code', code);
     payload.append('redirect_url', redirect_url);
 
-    axios.post('https://1ntxfj28d6.execute-api.us-east-2.amazonaws.com/prod', payload)
+    axios.post(' https://jttpz64lgh.execute-api.us-east-2.amazonaws.com/exchange', payload)
 
     .then(response => {
       if (response.status === 200) {
