@@ -49,7 +49,7 @@ const LandingPage = () => {
         const response = await axios.post(
           'https://accounts.spotify.com/api/token',
           params,
-          {
+          { 
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
               'Authorization': `Basic ${btoa(`${process.env.REACT_APP_SPOTIFY_CLIENT_ID}:${process.env.REACT_APP_SPOTIFY_CLIENT_SECRET}`)}`
