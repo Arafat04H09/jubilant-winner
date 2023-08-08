@@ -12,20 +12,15 @@ const RedirectPage = () => {
     const params = new URLSearchParams(window.location.search);
     const code = params.get('code');
 
-    const redirect_uri = "http://localhost:3000/redirect"
+    const redirect_url = "http://localhost:3000/redirect"
 
     const payload = new URLSearchParams();
     payload.append('grant_type', "authorization_code");
     payload.append('code', code);
-    payload.append('redirect_uri', redirect_uri);
+    payload.append('redirect_url', redirect_url);
 
-    axios.post('https://accounts.spotify.com/api/token', payload, {
-      headers: {
-        'Authorization': `Basic ${btoa(`${process.env.REACT_APP_SPOTIFY_CLIENT_ID}:${process.env.REACT_APP_SPOTIFY_CLIENT_SECRET}`)}`,
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      json: true
-    })
+    axios.post('https://1ntxfj28d6.execute-api.us-east-2.amazonaws.com/prod', payload)
+
     .then(response => {
       if (response.status === 200) {
         console.log("200 OK")
