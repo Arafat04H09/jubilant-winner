@@ -6,7 +6,7 @@ import '../Stylesheets/Navbar.css';
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <Link to="/home" className="navbar-brand">
+      <Link to="/" className="navbar-brand">
         Sp.stats
       </Link>
       <ul>
